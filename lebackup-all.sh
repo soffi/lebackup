@@ -10,6 +10,8 @@ $(dirname "$0")/lebackup-files.sh
 if [ -z "$VMS" ];
 then
 	echo no vms
+	umount $BACKUPDIR
+	rm -Rf $BACKUPDIR
 	exit 0
 fi
 for VM in $VMS
