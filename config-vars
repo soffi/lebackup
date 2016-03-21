@@ -1,3 +1,7 @@
+#!/bin/bash
+# VMs to back up!
 VMS="vm1 vm2 vm3"
+# scratch space for vm snaps (should be local disk)
 SCRATCHDIR="/scratch"
-BACKUPLOCATION="/backup"
+# final destination for backups
+BACKUPDIR="/backup"
