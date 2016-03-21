@@ -1,6 +1,6 @@
 #!/bin/bash
-# VMs to back up!
-VMS="vm1 vm2 vm3"
+# VMs to back up! enter names from virsh list seperated by spaces
+VMS=""
 # scratch space for vm snaps (should be local disk)
 SCRATCHDIR="/scratch"
 # final destination for backups

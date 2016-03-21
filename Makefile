@@ -13,8 +13,8 @@ install:
 	cp lebackup-files.sh /opt/lebackup/
 	cp lebackup-vm.sh /opt/lebackup/
 	cp lebackup-all.sh /opt/lebackup/
-	cp config-vars.sample /opt/lebackup/
-	cp backup-files.list.sample /opt/lebackup/
+	cp config-vars.sample /opt/lebackup/config-vars
+	cp backup-files.list.sample /opt/lebackup/backup-files.list
 	cp lebackup.cron /etc/cron.daily/
 	
 deb:
