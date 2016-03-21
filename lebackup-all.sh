@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 source $(dirname "$0")/config-vars
 # mount and create backup target 
 mkdir -p $BACKUPDIR
