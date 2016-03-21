@@ -5,3 +5,5 @@ VMS="vm1 vm2 vm3"
 SCRATCHDIR="/scratch"
 # final destination for backups
 BACKUPDIR="/backup"
+# NFS server
+NFSSERVER=server:/export

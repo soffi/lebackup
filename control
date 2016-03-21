@@ -1,0 +1,10 @@
+Package: disqovery-scripts
+Version: $VERSION
+Architecture: all
+Essential: no
+Section: utils
+Priority: optional
+Depends: jq (>=1.4)
+Maintainer: soffi
+Installed-Size: 96
+Description: disQovery scripts
