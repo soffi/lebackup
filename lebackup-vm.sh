@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+set -e
 source $(dirname "$0")/config-vars
 VM=$1
 if [ -z $1 ];
