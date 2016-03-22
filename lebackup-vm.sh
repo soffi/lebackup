@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 source $(dirname "$0")/config-vars
+STARTTIME=$(date +"%m-%d-%Y-%H%M")
 VM=$1
 if [ -z $1 ];
 	then
@@ -14,7 +15,7 @@ echo creating snapshot
 virsh snapshot-create-as --domain $VM $VM-snap --diskspec $BLOCKDEVTYPE,file=$SCRATCHDIR/$VM-snap.qcow2 --disk-only --atomic
 
 echo backing up
-rsync -avh --progress $BLOCKDEV $BACKUPDIR/$VM-vmbackup-$(date +"%m-%d-%Y-%H%M").qcow2
+bzip2 --fast $BLOCKDEV > $BACKUPDIR/$VM-vmbackup-$STARTTIME.qcow2.bz2
 
 echo merging snapshot
 virsh blockcommit $VM $BLOCKDEVTYPE --active --verbose --pivot
