@@ -15,7 +15,7 @@ echo creating snapshot
 virsh snapshot-create-as --domain $VM $VM-snap --diskspec $BLOCKDEVTYPE,file=$SCRATCHDIR/$VM-snap.qcow2 --disk-only --atomic
 
 echo backing up
-rsync -avh --progress $BLOCKDEV $BACKUPDIR/$VM-vmbackup-$STARTTIME.qcow2
+rsync -avh --no-o --no-g --progress $BLOCKDEV $RSYNCSERVER/$VM-vmbackup-$STARTTIME.qcow2
 
 echo merging snapshot
 virsh blockcommit $VM $BLOCKDEVTYPE --active --verbose --pivot

@@ -6,4 +6,4 @@ SCRATCHDIR="/scratch"
 # final destination for backups
 BACKUPDIR="/backup"
 # NFS server
-NFSSERVER=server:/export
+RSYNCSERVER=rsync://backup-server/$(hostname -s)
