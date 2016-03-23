@@ -15,7 +15,7 @@ install:
 	cp lebackup-all.sh /opt/lebackup/
 	cp config-vars.sample /opt/lebackup/
 	cp backup-files.list.sample /opt/lebackup/
-	cp lebackup.cron /etc/cron.daily/
+	cp lebackup.cron /etc/cron.daily/lebackup
 	
 deb:
 	rm -rf output-debian-8-$(disk_size_gb)-qemu
