@@ -1,4 +1,5 @@
 #!/bin/bash
+exec 1> >(logger -s -t $(basename $0)) 2>&1
 set -e
 source $(dirname "$0")/config-vars
 STARTTIME=$(date +"%m-%d-%Y-%H%M")
@@ -15,10 +16,10 @@ echo creating snapshot
 virsh snapshot-create-as --domain $VM $VM-snap --diskspec $BLOCKDEVTYPE,file=$SCRATCHDIR/$VM-snap.qcow2 --disk-only --atomic
 
 echo backing up
-rsync -avh --no-o --no-g --progress $BLOCKDEV $RSYNCSERVER/$VM-vmbackup-$STARTTIME.qcow2
+rsync -avh --no-o --no-g $BLOCKDEV $RSYNCSERVER/$VM-vmbackup-$STARTTIME.qcow2
 
 echo merging snapshot
-virsh blockcommit $VM $BLOCKDEVTYPE --active --verbose --pivot
+virsh blockcommit $VM $BLOCKDEVTYPE --active --pivot
 
 echo deleting snapshot
 virsh snapshot-delete $VM $VM-snap --metadata
